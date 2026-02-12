@@ -1,6 +1,4 @@
-﻿version: "3.9"
-
-services:
+﻿services:
   expense-bot:
     build: .
     container_name: aiogram_bot
