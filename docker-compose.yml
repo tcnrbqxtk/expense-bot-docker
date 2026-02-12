@@ -1,26 +1,9 @@
-﻿services:
-  db:
-    image: postgres:16
-    container_name: bot_db
-    restart: always
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+﻿version: "3.9"
 
+services:
   expense-bot:
     build: .
     container_name: aiogram_bot
     restart: always
-    depends_on:
-      - db
     environment:
       BOT_TOKEN: ${BOT_TOKEN}
-      DB_URL: postgresql+asyncpg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}
-
-volumes:
-  postgres_data:

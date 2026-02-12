@@ -6,7 +6,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 
 from config import BOT_TOKEN, ENV
 from handlers import all_handlers
-from db.base import engine, Base
+# from db.base import engine, Base
 
 
 if ENV == "PROD":
@@ -19,9 +19,9 @@ setup_logging()
 logger = logging.getLogger(__name__)
 
 
-async def create_tables():
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+# async def create_tables():
+#     async with engine.begin() as conn:
+#         await conn.run_sync(Base.metadata.create_all)
 
 
 async def main() -> str | None:
@@ -37,7 +37,7 @@ async def main() -> str | None:
     await bot.delete_webhook(drop_pending_updates=True)
 
     logger.info("🤖 Бот запущен (polling)")
-    await create_tables()
+    # await create_tables()
     await dp.start_polling(bot)  # type: ignore
 
 
