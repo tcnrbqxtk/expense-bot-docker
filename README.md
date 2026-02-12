@@ -71,7 +71,20 @@ git clone https://github.com/tcnrbqxtk/expense-bot.git
 cd expense-bot
 ```
 
- 2.
+ 2. Создать файл .env
+
+```bash
+BOT_TOKEN=your_telegram_bot_token
+ENV=PROD/DEV
+ADMIN_IDS=numeric_telegram_admin_ids,
+DATA_FILE=data/expenses.json
+```
+
+ 3. Сделать копию json-файла
+
+Для работы создайте копию expenses.json.example в директории data и назовите её expenses.json
+
+ 4. Docker compose
 
 ```bash
 docker compose up --build
